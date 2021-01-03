@@ -103,7 +103,7 @@ for feat in oo.getFeatures():
     b[feat['SitRecID']] = feat['PAonKBA_ar']
 
 for feat in oo.getFeatures():
-    c[feat['SitRecID']] = feat['_ON_sum']*gr.rasterUnitsPerPixelX()*gr.rasterUnitsPerPixelY()
+    c[feat['SitRecID']] = feat['OvN_sum']*gr.rasterUnitsPerPixelX()*gr.rasterUnitsPerPixelY()
 
 
 
