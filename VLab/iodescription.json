@@ -39,18 +39,18 @@
         "id": "DataObject_0f4b4b1",
         "outputType": "individual",
         "valueType": "value",
-        "description": "Areas percentage shapefile",
+        "description": "Areas percentage computed on intersection output",
+		"name": "Areas percentage shapefile",
         "valueSchema": "url",
         "target": "PAonKBA.shp"
-     },
-        {
-      "id": "DataObject_0f4b4b2",
-      "outputType": "individual",
-      "valueType": "value",
-      "description": "Results on the text file",
-      "name": "Results: text file",
-      "valueSchema": "url",
-      "target": "PAonKBApercentage.txt"
-   }        
+     },    
+        "id": "DataObject_0f4b4b2",
+        "outputType": "individual",
+        "valueType": "value",
+        "description": "Results on the text file",
+        "name": "Results: text file",
+        "valueSchema": "url",
+        "target": "PAonKBApercentage.txt"
+	  }        
       ]
 }

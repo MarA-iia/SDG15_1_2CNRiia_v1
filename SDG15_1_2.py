@@ -126,5 +126,5 @@ print ("The mean percentage of area covered by protected area by ecosystem type 
 
 # Finally, exitQgis() is called to remove the
 # provider and layer registries from memory
-print ("success")
+# print ("success")
 qgs.exitQgis()
