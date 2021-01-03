@@ -40,7 +40,7 @@
         "outputType": "individual",
         "valueType": "value",
         "description": "Areas percentage computed on intersection output",
-		"name": "Areas percentage shapefile",
+		"name": "Areas percentage geopackage file",
         "valueSchema": "url",
         "target": "PAonKBA"
      }, 

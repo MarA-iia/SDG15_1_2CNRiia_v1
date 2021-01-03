@@ -35,7 +35,7 @@ alg_params = {
 'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT,
 }
 
-outputs['OverlapAnalysis'] = processing.runAndLoadResults('native:calculatevectoroverlaps', alg_params)
+outputs['OverlapAnalysis'] = processing.run('native:calculatevectoroverlaps', alg_params)
 
 # Statistiche zonali
 alg_params = {
@@ -98,7 +98,11 @@ oo = QgsVectorLayer(outputs['Intersezione']['OUTPUT'])
 
 for feat in oo.getFeatures():
     a[feat['SitRecID']] = feat['Area_meter']
+
+for feat in oo.getFeatures():
     b[feat['SitRecID']] = feat['PAonKBA_ar']
+
+for feat in oo.getFeatures():
     c[feat['SitRecID']] = feat['OvN_sum']*gr.rasterUnitsPerPixelX()*gr.rasterUnitsPerPixelY()
 
 resultat = {key: (100*b.get(key, 0)/a[key]) for key in a.keys()}
