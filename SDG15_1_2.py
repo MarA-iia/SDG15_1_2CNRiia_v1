@@ -117,7 +117,6 @@ outputs['Intersezione'] = processing.run('native:intersection', alg_params)
     # mysum += resultat[i]
     # mysum1 += resultat1[i]
 
-print i, resultat[i]
 # print ("The mean percentage of area covered by protected area is ", mysum/count)
 # print ("The mean percentage of area covered by protected area by ecosystem type ",gr.name()," is ", mysum1/count)
 
