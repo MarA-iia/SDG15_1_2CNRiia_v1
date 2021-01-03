@@ -97,7 +97,7 @@ c = {}
 resultat = {}
 resultat1 = {}
 
-oo = QgsVectorLayer(outputs['Intersezione']['OUTPUT'])
+oo = QgsVectorLayer(outputs['CalcolatoreCampi']['OUTPUT'])
 
 for feat in oo.getFeatures():
     a[feat['SitRecID']] = feat['Area_meter']
