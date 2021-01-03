@@ -60,7 +60,8 @@ alg_params = {
 outputs['Intersezione'] = processing.run('native:intersection', alg_params)
 
 Processing.initialize()
-Processing.updateAlgsList()
+for alg in QgsApplication.processingRegistry().algorithms():
+        print(alg.id(), "->", alg.displayName())
 #field calculator
 alg_params = {
     'FIELD_LENGTH': 10,
