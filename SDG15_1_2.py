@@ -59,6 +59,8 @@ alg_params = {
 }
 outputs['Intersezione'] = processing.run('native:intersection', alg_params)
 
+Processing.initialize()
+Processing.updateAlgsList()
 #field calculator
 alg_params = {
     'FIELD_LENGTH': 10,
@@ -84,7 +86,7 @@ outputs['CalcolatoreCampi'] = processing.run('qgis:fieldcalculator', alg_params)
     # 'NEW_FIELD': True,
     # 'OUTPUT': "PrAreaonKBA.gpkg",
 # }
-# outputs['CalcolatoreCampi']= processing.run('qgis:fieldcalculator', alg_params)
+#outputs['CalcolatoreCampi']= processing.run('qgis:fieldcalculator', alg_params)
 ## Processing end
 
 #part2: textual output
