@@ -121,7 +121,7 @@ outputs['Intersezione'] = processing.run('native:intersection', alg_params)
 # print ("The mean percentage of area covered by protected area by ecosystem type ",gr.name()," is ", mysum1/count)
 
 
-Finally, exitQgis() is called to remove the
-provider and layer registries from memory
+# Finally, exitQgis() is called to remove the
+# provider and layer registries from memory
 print ("success")
 # qgs.exitQgis()
