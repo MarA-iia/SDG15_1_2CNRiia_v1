@@ -40,9 +40,27 @@
         "outputType": "individual",
         "valueType": "value",
         "description": "Areas percentage computed on intersection output",
-		"name": "Areas percentage geopackage file",
+		"name": "Protected areas on KBA geopackage file",
         "valueSchema": "url",
         "target": "PAonKBA.gpkg"
-     }        
+     },
+        {
+        "id": "DataObject_0f4b4b2",
+        "outputType": "individual",
+        "valueType": "value",
+        "description": "Areas percentage computed on intersection output",
+		"name": "Areas percentage geopackage file",
+        "valueSchema": "url",
+        "target": "PrAreaonKBA.gpkg"
+     },
+        {	 
+        "id": "DataObject_0f4b4b3",
+        "outputType": "individual",
+        "valueType": "value",
+        "description": "Results on the text file",
+        "name": "Results: text file",
+        "valueSchema": "url",
+        "target": "PAonKBApercentage.txt"
+	 }	 
       ]
 }
