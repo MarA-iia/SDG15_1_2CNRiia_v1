@@ -42,7 +42,7 @@
         "description": "Areas percentage computed on intersection output",
 		"name": "Areas percentage geopackage file",
         "valueSchema": "url",
-        "target": "PAonKBA"
+        "target": "PAonKBA.gpkg"
      }, 
         {	 
         "id": "DataObject_0f4b4b2",
