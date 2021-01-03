@@ -11,4 +11,4 @@ export GDAL_FILENAME_IS_UTF8=YES
 
 Xvfb :99 -ac -noreset &
 export DISPLAY=:99
-python3 SDG15_2_1.py >> PAonKBApercentage.txt
+python3 SDG15_1_2.py >> PAonKBApercentage.txt
