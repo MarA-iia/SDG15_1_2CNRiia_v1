@@ -3,6 +3,7 @@ from qgis.core import *
 import processing
 from qgis.analysis import *
 from processing.core.Processing import Processing
+from qgis.PyQt.QtCore import QVariant,QSettings, QTranslator, qVersion, QCoreApplication
 
 # Prepare the environment
 qgs = QgsApplication([], False)
@@ -71,7 +72,7 @@ outputs['Intersezione'] = processing.run('native:intersection', alg_params)
 # }
 # outputs['CalcolatoreCampi'] = processing.run('qgis:fieldcalculator', alg_params)
 
-field calculator
+#field calculator
 # alg_params = {
     # 'FIELD_LENGTH': 10,
     # 'FIELD_NAME': 'GRonPA',
