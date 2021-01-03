@@ -55,7 +55,7 @@ alg_params = {
     'OVERLAY': g1,
     'OVERLAY_FIELDS': "N_sum",
     'OVERLAY_FIELDS_PREFIX': 'Ov',
-    'OUTPUT': "PAonKBA",
+    'OUTPUT': "PAonKBA.gpkg",
 }
 outputs['Intersezione'] = processing.run('native:intersection', alg_params)
 
@@ -87,42 +87,42 @@ outputs['Intersezione'] = processing.run('native:intersection', alg_params)
 ## Processing end
 
 #part2: textual output
-a = {}
-b = {}
-c = {}
+# a = {}
+# b = {}
+# c = {}
 
-resultat = {}
-resultat1 = {}
+# resultat = {}
+# resultat1 = {}
 
-oo = QgsVectorLayer(outputs['Intersezione']['OUTPUT'])
+# oo = QgsVectorLayer(outputs['Intersezione']['OUTPUT'])
 
-for feat in oo.getFeatures():
-    a[feat['SitRecID']] = feat['Area_meter']
+# for feat in oo.getFeatures():
+    # a[feat['SitRecID']] = feat['Area_meter']
 
-for feat in oo.getFeatures():
-    b[feat['SitRecID']] = feat['PAonKBA_ar']
+# for feat in oo.getFeatures():
+    # b[feat['SitRecID']] = feat['PAonKBA_ar']
 
-for feat in oo.getFeatures():
-    c[feat['SitRecID']] = feat['OvN_sum']*gr.rasterUnitsPerPixelX()*gr.rasterUnitsPerPixelY()
+# for feat in oo.getFeatures():
+    # c[feat['SitRecID']] = feat['OvN_sum']*gr.rasterUnitsPerPixelX()*gr.rasterUnitsPerPixelY()
 
-resultat = {key: (100*b.get(key, 0)/a[key]) for key in a.keys()}
-resultat1 = {key: (100*c.get(key, 0)/b[key]) for key in b.keys()}
+# resultat = {key: (100*b.get(key, 0)/a[key]) for key in a.keys()}
+# resultat1 = {key: (100*c.get(key, 0)/b[key]) for key in b.keys()}
 
-count = 0
-mysum = 0
-mysum1= 0
+# count = 0
+# mysum = 0
+# mysum1= 0
 
-for i in resultat:
-    count += 1
-    mysum += resultat[i]
-    mysum1 += resultat1[i]
+# for i in resultat:
+    # count += 1
+    # mysum += resultat[i]
+    # mysum1 += resultat1[i]
 
-#print i, resultat[i]
-print ("The mean percentage of area covered by protected area is ", mysum/count)
-print ("The mean percentage of area covered by protected area by ecosystem type ",gr.name()," is ", mysum1/count)
+print i, resultat[i]
+# print ("The mean percentage of area covered by protected area is ", mysum/count)
+# print ("The mean percentage of area covered by protected area by ecosystem type ",gr.name()," is ", mysum1/count)
 
 
-# Finally, exitQgis() is called to remove the
-# provider and layer registries from memory
-# print ("success")
-qgs.exitQgis()
+Finally, exitQgis() is called to remove the
+provider and layer registries from memory
+print ("success")
+# qgs.exitQgis()
