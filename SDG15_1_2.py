@@ -54,35 +54,35 @@ alg_params = {
     'OVERLAY': g1,
     'OVERLAY_FIELDS': "N_sum",
     'OVERLAY_FIELDS_PREFIX': 'Ov',
-    'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT,
+    'OUTPUT': "PAonKBA.shp",
 }
 outputs['Intersezione'] = processing.run('native:intersection', alg_params)
 
 #field calculator
-alg_params = {
-    'FIELD_LENGTH': 10,
-    'FIELD_NAME': 'PixArea100',
-    'FIELD_PRECISION': 3,
-    'FIELD_TYPE': 0,
-    'FORMULA': gr.rasterUnitsPerPixelX()*gr.rasterUnitsPerPixelY()*100.0,
-    'INPUT': outputs['Intersezione']['OUTPUT'],
-    'NEW_FIELD': True,
-    'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT,
-}
-outputs['CalcolatoreCampi'] = processing.run('qgis:fieldcalculator', alg_params)
+# alg_params = {
+    # 'FIELD_LENGTH': 10,
+    # 'FIELD_NAME': 'PixArea100',
+    # 'FIELD_PRECISION': 3,
+    # 'FIELD_TYPE': 0,
+    # 'FORMULA': gr.rasterUnitsPerPixelX()*gr.rasterUnitsPerPixelY()*100.0,
+    # 'INPUT': outputs['Intersezione']['OUTPUT'],
+    # 'NEW_FIELD': True,
+    # 'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT,
+# }
+# outputs['CalcolatoreCampi'] = processing.run('qgis:fieldcalculator', alg_params)
 
-#field calculator
-alg_params = {
-    'FIELD_LENGTH': 10,
-    'FIELD_NAME': 'GRonPA',
-    'FIELD_PRECISION': 3,
-    'FIELD_TYPE': 0,
-    'FORMULA':'"PixArea100"*"OvN_sum"/"PAonKBA_area"',
-    'INPUT': outputs['CalcolatoreCampi']['OUTPUT'],
-    'NEW_FIELD': True,
-    'OUTPUT': "PAonKBA.shp",
-}
-outputs['CalcolatoreCampi']= processing.run('qgis:fieldcalculator', alg_params)
+field calculator
+# alg_params = {
+    # 'FIELD_LENGTH': 10,
+    # 'FIELD_NAME': 'GRonPA',
+    # 'FIELD_PRECISION': 3,
+    # 'FIELD_TYPE': 0,
+    # 'FORMULA':'"PixArea100"*"OvN_sum"/"PAonKBA_area"',
+    # 'INPUT': outputs['CalcolatoreCampi']['OUTPUT'],
+    # 'NEW_FIELD': True,
+    # 'OUTPUT': "PAonKBA.shp",
+# }
+# outputs['CalcolatoreCampi']= processing.run('qgis:fieldcalculator', alg_params)
 ## Processing end
 
 #part2: textual output
