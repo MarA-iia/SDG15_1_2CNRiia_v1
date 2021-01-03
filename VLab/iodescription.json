@@ -43,15 +43,6 @@
 		"name": "Areas percentage geopackage file",
         "valueSchema": "url",
         "target": "PAonKBA.gpkg"
-     }, 
-        {	 
-        "id": "DataObject_0f4b4b2",
-        "outputType": "individual",
-        "valueType": "value",
-        "description": "Results on the text file",
-        "name": "Results: text file",
-        "valueSchema": "url",
-        "target": "PAonKBApercentage.txt"
-	 }        
+     }        
       ]
 }
