@@ -9,7 +9,7 @@ qgs = QgsApplication([], False)
 qgs.setPrefixPath("/usr", True)
 
 # Inizialization
-gs.initQgis()
+qgs.initQgis()
 QgsApplication.processingRegistry().addProvider(QgsNativeAlgorithms())
 
 ## Processing init
