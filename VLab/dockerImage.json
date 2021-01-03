@@ -1,0 +1,17 @@
+{
+
+    "image":  "iiacnr/qgis_ubuntu_bionic_sdg",
+    "resources": {
+      "memory_mb": "5000",
+      "cpu_units": ""
+   },
+    "container": {
+      "entryPoint": [
+        "/bin/bash",
+        "-c"
+   ],
+      "command": [
+        "sh SDG15_1_2_Workflow.sh"
+   ]
+    }
+}

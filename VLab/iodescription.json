@@ -1,0 +1,56 @@
+{
+    "inputs": [   
+       {
+        "id": "DataObject_0f4b4a1",
+        "inputType": "individual",
+        "valueType": "value",
+        "description": "Shapefile of the protected areas of interest from the World Database on Protected Areas (WDPA)",
+        "name": "input from WDPA",
+        "obligation": true,
+        "hasDefault": false,
+        "valueSchema": "url",
+        "target": "Protected_area_Murge.zip"
+     },
+       {
+        "id": "DataObject_0f4b4a2",
+        "inputType": "individual",
+        "valueType": "value",
+        "description": "Shapefile of the Key Byodiversity Areas (KBA) of interest",
+        "name": "input from KBA",
+        "obligation": true,
+        "hasDefault": false,
+        "valueSchema": "url",
+        "target": "KBA_Apulian_Region_Italy.zip"
+     },
+        {
+        "id": "DataObject_0f4b4a3",
+        "inputType": "individual",
+        "valueType": "value",
+        "description": "GeoTIFF ecosystem/habitat map from Earth Observation data",
+        "name": "Ecosystem map by CNR IIA",
+        "obligation": true,
+        "hasDefault": false,
+        "valueSchema": "url",
+        "target": "LC_GRASSLANDS_1990_30m_ProtectedAreaMurge.tif"
+     }   
+      ],
+    "outputs": [
+        {
+        "id": "DataObject_0f4b4b1",
+        "outputType": "individual",
+        "valueType": "value",
+        "description": "Areas percentage computed on intersection output",
+        "valueSchema": "url",
+        "target": "PAonKBA.shp"
+     },
+        {
+      "id": "DataObject_0f4b4b3",
+      "outputType": "individual",
+      "valueType": "value",
+      "description": "Results on the text file",
+      "name": "Results: text file",
+      "valueSchema": "url",
+      "target": "PAonKBApercentage.txt"
+   }        
+      ]
+}

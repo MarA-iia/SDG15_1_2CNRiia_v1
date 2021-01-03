@@ -1,0 +1,14 @@
+{
+    "scripts": [
+      {
+        "repoPath": "SDG15_1_2_Workflow.sh",
+        "targetPath": "SDG15_1_2_Workflow.sh",
+        "pathType": "FILE"
+   },
+      {
+        "repoPath": "SDG15_1_2.py",
+        "targetPath": "SDG15_1_2.py",
+        "pathType": "FILE"
+   }
+    ]
+}
