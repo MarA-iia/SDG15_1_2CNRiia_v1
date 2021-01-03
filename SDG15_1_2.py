@@ -32,7 +32,7 @@ if not gr.isValid():
 alg_params = {
 'INPUT': g,
 'LAYERS': g1,
-'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT,
+'OUTPUT': "PAonKBA.gpkg",
 }
 
 outputs['OverlapAnalysis'] = processing.run('native:calculatevectoroverlaps', alg_params)
@@ -55,14 +55,12 @@ alg_params = {
     'OVERLAY': g1,
     'OVERLAY_FIELDS': "N_sum",
     'OVERLAY_FIELDS_PREFIX': 'Ov',
-    'OUTPUT': "PAonKBA.gpkg",
+    'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT,
 }
 outputs['Intersezione'] = processing.run('native:intersection', alg_params)
 
-Processing.initialize()
-for alg in QgsApplication.processingRegistry().algorithms():
-        print(alg.id(), "->", alg.displayName())
 #field calculator
+Processing.initialize()
 alg_params = {
     'FIELD_LENGTH': 10,
     'FIELD_NAME': 'PixArea100',
@@ -71,23 +69,24 @@ alg_params = {
     'FORMULA': gr.rasterUnitsPerPixelX()*gr.rasterUnitsPerPixelY()*100.0,
     'INPUT': outputs['Intersezione']['OUTPUT'],
     'NEW_FIELD': True,
-    # 'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT,
-    'OUTPUT': "PrAreaonKBA.gpkg",
+    'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT,
 }
 outputs['CalcolatoreCampi'] = processing.run('qgis:fieldcalculator', alg_params)
 
+
 #field calculator
-# alg_params = {
-    # 'FIELD_LENGTH': 10,
-    # 'FIELD_NAME': 'GRonPA',
-    # 'FIELD_PRECISION': 3,
-    # 'FIELD_TYPE': 0,
-    # 'FORMULA':'"PixArea100"*"OvN_sum"/"PAonKBA_area"',
-    # 'INPUT': outputs['CalcolatoreCampi']['OUTPUT'],
-    # 'NEW_FIELD': True,
-    # 'OUTPUT': "PrAreaonKBA.gpkg",
-# }
-#outputs['CalcolatoreCampi']= processing.run('qgis:fieldcalculator', alg_params)
+Processing.initialize()
+alg_params = {
+    'FIELD_LENGTH': 10,
+    'FIELD_NAME': 'GRonPA',
+    'FIELD_PRECISION': 3,
+    'FIELD_TYPE': 0,
+    'FORMULA':'"PixArea100"*"OvN_sum"/"PAonKBA_area"',
+    'INPUT': outputs['CalcolatoreCampi']['OUTPUT'],
+    'NEW_FIELD': True,
+    'OUTPUT': "PrAreaonKBA.gpkg",
+}
+outputs['CalcolatoreCampi']= processing.run('qgis:fieldcalculator', alg_params)
 ## Processing end
 
 #part2: textual output
@@ -102,11 +101,7 @@ oo = QgsVectorLayer(outputs['Intersezione']['OUTPUT'])
 
 for feat in oo.getFeatures():
     a[feat['SitRecID']] = feat['Area_meter']
-
-for feat in oo.getFeatures():
     b[feat['SitRecID']] = feat['PAonKBA_area']
-
-for feat in oo.getFeatures():
     c[feat['SitRecID']] = feat['OvN_sum']*gr.rasterUnitsPerPixelX()*gr.rasterUnitsPerPixelY()
 
 resultat = {key: (100*b.get(key, 0)/a[key]) for key in a.keys()}
