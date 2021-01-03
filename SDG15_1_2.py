@@ -55,7 +55,7 @@ alg_params = {
     'OVERLAY': g1,
     'OVERLAY_FIELDS': "N_sum",
     'OVERLAY_FIELDS_PREFIX': 'Ov',
-    'OUTPUT': "PAonKBA.shp",
+    'OUTPUT': "PAonKBA.gpkg",
 }
 outputs['Intersezione'] = processing.run('native:intersection', alg_params)
 
@@ -98,14 +98,8 @@ oo = QgsVectorLayer(outputs['Intersezione']['OUTPUT'])
 
 for feat in oo.getFeatures():
     a[feat['SitRecID']] = feat['Area_meter']
-
-for feat in oo.getFeatures():
     b[feat['SitRecID']] = feat['PAonKBA_ar']
-
-for feat in oo.getFeatures():
     c[feat['SitRecID']] = feat['OvN_sum']*gr.rasterUnitsPerPixelX()*gr.rasterUnitsPerPixelY()
-
-
 
 resultat = {key: (100*b.get(key, 0)/a[key]) for key in a.keys()}
 resultat1 = {key: (100*c.get(key, 0)/b[key]) for key in b.keys()}
