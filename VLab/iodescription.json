@@ -43,7 +43,8 @@
 		"name": "Areas percentage shapefile",
         "valueSchema": "url",
         "target": "PAonKBA.shp"
-     },    
+     }, 
+        {	 
         "id": "DataObject_0f4b4b2",
         "outputType": "individual",
         "valueType": "value",
@@ -51,6 +52,6 @@
         "name": "Results: text file",
         "valueSchema": "url",
         "target": "PAonKBApercentage.txt"
-	  }        
+	 }        
       ]
 }
