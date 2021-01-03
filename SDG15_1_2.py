@@ -55,7 +55,7 @@ alg_params = {
     'OVERLAY': g1,
     'OVERLAY_FIELDS': "N_sum",
     'OVERLAY_FIELDS_PREFIX': 'Ov',
-    'OUTPUT': "PAonKBA.gpkg",
+    'OUTPUT': "PAonKBA",
 }
 outputs['Intersezione'] = processing.run('native:intersection', alg_params)
 
