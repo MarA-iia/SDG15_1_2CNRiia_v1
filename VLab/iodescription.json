@@ -42,7 +42,7 @@
         "description": "Areas percentage computed on intersection output",
 		"name": "Areas percentage shapefile",
         "valueSchema": "url",
-        "target": "PAonKBA.gpkg"
+        "target": "PAonKBA"
      }, 
         {	 
         "id": "DataObject_0f4b4b2",
