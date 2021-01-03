@@ -45,7 +45,7 @@ alg_params = {
     'STATS': [1]
     }
 
-outputs['StatisticheZonali'] = processing.runAndLoadResults('qgis:zonalstatistics', alg_params)
+outputs['StatisticheZonali'] = processing.run('qgis:zonalstatistics', alg_params)
 
 #Intersezione
 alg_params = {
@@ -69,7 +69,7 @@ alg_params = {
     'NEW_FIELD': True,
     'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT,
 }
-outputs['CalcolatoreCampi'] = processing.runAndLoadResults('qgis:fieldcalculator', alg_params)
+outputs['CalcolatoreCampi'] = processing.run('qgis:fieldcalculator', alg_params)
 
 #field calculator
 alg_params = {
@@ -80,9 +80,9 @@ alg_params = {
     'FORMULA':'"PixArea100"*"OvN_sum"/"PAonKBA_area"',
     'INPUT': outputs['CalcolatoreCampi']['OUTPUT'],
     'NEW_FIELD': True,
-    'OUTPUT': "PAonKBA2.shp",
+    'OUTPUT': "PAonKBA.shp",
 }
-outputs['CalcolatoreCampi']= processing.runAndLoadResults('qgis:fieldcalculator', alg_params)
+outputs['CalcolatoreCampi']= processing.run('qgis:fieldcalculator', alg_params)
 ## Processing end
 
 #part2: textual output
