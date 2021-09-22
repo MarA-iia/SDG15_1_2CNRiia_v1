@@ -16,7 +16,7 @@ QgsApplication.processingRegistry().addProvider(QgsNativeAlgorithms())
 ## Processing init
 #input_output
 outputs = {}
-g = QgsVectorLayer("KBA_Apulian_Region_Italy.zip","kba","ogr")
+g = QgsVectorLayer("KBA_Apulian_Region_Italy.shp","kba","ogr")
 if not g.isValid():
   print ("Layer g failed to load!")
 
